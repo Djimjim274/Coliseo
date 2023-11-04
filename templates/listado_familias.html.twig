@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block contenido %}
+
+<div class="container">    
+    <h3>{%  block title  %}Suplementación: {% endblock %}</h3>
+    
+    <div class="container mt-4">
+    <div class="row">
+        <!-- Tarjeta de Producto 1 -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="imagen_producto_1.jpg" class="card-img-top" alt="Producto 1">
+                <div class="card-body">
+                    <h5 class="card-title">Producto 1</h5>
+                    <p class="card-text">Descripción del producto 1.</p>
+                    <a href="pagina_producto_1.html" class="btn btn-primary">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+
+</div>
+ 
+    
+    <table> 
+        {% for familia in familias %}
+        <tr>
+            <td><p><a href="{{ path('productos', {'familia': familia.getId()}) }}">{{ familia.getNombre() }}</a></p> <td> 
+
+        </tr>
+        {% endfor %}
+    </table>
+    
+</div>      
+    
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block contenido %}
+
+
+    <div class="container mt-5">
+        <h3 class="mb-4">{%  block title  %} HISTORIAL DE PEDIDOS: {% endblock %}</h3>
+        {% for pedido in pedidos %}
+            <table class="table table-bordered" class=" " >
+                <thead class="thead-dark table-primary">
+                    <tr>
+                        <th>Nº Pedido: {{ pedido.id }}</th>
+                        <th>Fecha: {{ pedido.fecha | date('d-m-Y h:i:s') }}</th>
+                        <th>Coste total: {{ pedido.coste }}€</th>     
+                    </tr> 
+                </thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Unidades</th>
+                    <th>Total</th>
+                </tr>
+                <tbody>
+                    </tr>  
+                    {% for producto in pedido.pedidosProductos %}
+
+                    <td>{{ producto.producto.getNombre() }}</td>
+                    <td>{{ producto.producto.getPrice() }}€</td>
+                    <td>{{ producto.unidades }}</td>
+                    <td>{{ producto.producto.getPrice() * producto.unidades }}€</td>
+
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}  

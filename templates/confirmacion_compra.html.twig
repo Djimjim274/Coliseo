@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block contenido %}
+    <h3>{%  block title  %}CONFIRMACIÓN DE COMPRA: {% endblock %}</h3>
+    <p style="color:green">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
+            <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z"/>
+            <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z"/>
+        </svg>
+        Su pedido se ha realizado correctamente</p>
+    <br>
+        <table class="table table-bordered" class=" " >
+                <thead class="thead-dark table-primary">
+                    <tr>
+                        <th>Nº Pedido: {{ pedido.id }}</th>
+                        <th>Fecha: {{ pedido.fecha | date('d-m-Y h:i:s') }}</th>
+                        <th>Coste total: {{ pedido.coste }}€</th>     
+                    </tr> 
+                </thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Unidades</th>
+                    <th>Total</th>
+                </tr>
+                <tbody>
+                  <tr>
+                {% for producto in productosCesta %}
+
+                    <td>{{ producto['producto'].getNombre() }}</td>
+                    <td>{{ producto['producto'].getPrice() }}€</td>
+                    <td>{{ producto['unidades'] }}</td>
+                    <td>{{ producto['producto'].getPrice() * producto.unidades }}€</td>
+
+                </tr>
+            {% endfor %}
+                </tbody>
+        </table>
+
+    <ul>
+        <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
+                <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
+                <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"/>
+            </svg>
+            <a href="{{ path('familia') }}">Volver a la tienda</a>
+        </li>
+        <li> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+            <a href="{{ path('app_logout') }}">Cerrar Sesión</a></li>
+    </ul>
+{% endblock %}
+
