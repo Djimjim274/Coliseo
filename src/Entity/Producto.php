@@ -50,6 +50,11 @@ class Producto
      */
     private $pedidosProductos;
 
+    /**
+     * @ORM\Column(type="blob")
+     */
+    private $img;
+
     public function __construct()
     {
         $this->pedidosProductos = new ArrayCollection();
@@ -145,6 +150,18 @@ class Producto
                 $pedidosProducto->setProducto(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    public function setImg($img): self
+    {
+        $this->img = $img;
 
         return $this;
     }
