@@ -2,36 +2,27 @@
 
 {% block contenido %}
 
-<div class="container">    
-    <h3>{%  block title  %}Suplementación: {% endblock %}</h3>
-    
-    <div class="container mt-4">
-    <div class="row">
-        <!-- Tarjeta de Producto 1 -->
-        <div class="col-md-4">
-            <div class="card">
-                <img src="imagen_producto_1.jpg" class="card-img-top" alt="Producto 1">
-                <div class="card-body">
-                    <h5 class="card-title">Producto 1</h5>
-                    <p class="card-text">Descripción del producto 1.</p>
-                    <a href="pagina_producto_1.html" class="btn btn-primary">Ver Detalles</a>
-                </div>
+    <div class="container ">    
+        <h3>{%  block title  %}Suplementación {% endblock %}</h3>
+
+        <div class="container mt-4 text-center">
+
+            <div class="row ">
+                <!-- Tarjeta de Producto 1 -->
+                {% for familia in familias %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card ">
+                            <img src="{{ asset('images/LOGO.png') }}" class="card-img-top mx-auto d-block" alt="Producto 1">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ familia.getNombre()}}<a/></h5>
+                                <a  class="btn btn-primary" text-decoration="none"  href="{{ path('productos', {'familia': familia.getId()}) }}">Ver Productos</a>
+
+                            </div>
+                        </div>
+                    </div>  
+                {% endfor %}
             </div>
-        </div>
+        </div>      
 
-</div>
- 
-    
-    <table> 
-        {% for familia in familias %}
-        <tr>
-            <td><p><a href="{{ path('productos', {'familia': familia.getId()}) }}">{{ familia.getNombre() }}</a></p> <td> 
-
-        </tr>
-        {% endfor %}
-    </table>
-    
-</div>      
-    
-{% endblock %}
+    {% endblock %}
 

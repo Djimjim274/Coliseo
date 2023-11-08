@@ -1,32 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block contenido %}
-<div class="container"> 
-    <h3>{% block title %}PRODUCTOS {% endblock %}</h3>
-  <div class="row row-cols-1 row-cols-md-4 g-3">
-      {% for producto in productos %}
-   <div class="col">
-                <div class="card" >
-                  <img src="{{ asset('images/aminoacidos.jpg') }}" class="d-block w-70 img-fluid" alt="Aminoácidos">
-                    
-                    <div class="card-body">
-                        <h5 class="card-title">{{producto.getNombre()}}</h5>
-                        <br>
-                        <p class="card-text">{{producto.getDescripcion() }}</p>
-                        <p class="card-cover">{{producto.getPrice() }}€</p>
-                        
-                       <form id='anadir' action='{{ path('anadir', {'producto_id':producto.getId() }) }}' method='post'>
-                        <input class="minimalist-small-button" type="number" name='unidades' value='1' class="cantidad" >
-                            <input class="btn btn-primary btn-block" type='submit' name='anadir' value='Añadir'>
-                                <input type='hidden' name='id' value='{{producto.getId()}}'/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-                        
-      {% endfor %}
-     </div>    
-   </div>      
+  
+        
+    <div class="container ">    
+        <h3>{%  block title  %}Productos {% endblock %}</h3>
 
-  {% endblock %}
+        <div class="container mt-4 ">
+
+            <div class="row ">
+                <!-- Tarjeta de Producto 1 -->
+                {% for producto in productos %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card ">
+                           <img src="{{ asset('images/LOGO.png') }}" class="card-img-top mx-auto d-block" alt="{{producto.getNombre()}}">
+                            <div class="card-body">
+                            <h5 class="card-title">{{producto.getNombre()}}</h5>
+                            <br>
+                            <p class="card-text">{{producto.getDescripcion() }}</p>
+                            <p class="card-cover">{{producto.getPrice() }}€</p>
+
+                            <form id='anadir' action='{{ path('anadir', {'producto_id':producto.getId() }) }}' method='post'>
+                                <input class="minimalist-small-button" type="number" name='unidades' value='1' class="cantidad" >
+                                <input class="btn btn-primary btn-block" type='submit' name='anadir' value='Añadir'>
+                                <input type='hidden' name='id' value='{{producto.getId()}}'/>
+                            </form>
+                            </div>
+                        </div>
+                    </div>  
+                {% endfor %}
+            </div>
+        </div>  
+{% endblock %}
 

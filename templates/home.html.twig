@@ -23,47 +23,43 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ path('historial') }}">Historial</a>
         </li>
+      </ul> 
+        
+        <ul class="navbar-nav ml-auto">
+         {% if app.user != null %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_logout') }}">Salir</a>
+        </li>
+           {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Regístrate</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+          {% endif %}
       </ul>
         
-         <ul>
-          {% if app.user != null %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}">salir</a>
-                    </li>
-         </ul>
-         <ul>           
-                {% else %}
-                     <li class="nav-item">
-                    <a class="nav-link" href="/register">Regístrate</a>
-                    </li> 
-         </ul>           
-            <ul>          
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                {% endif %}
-         </ul>
-      
-           
-      
+        
     </div>
   </div>
 </nav>
 
-   
+ 
+
                
         <!--CAROUSEL-->
         <center>
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('images/LOGO_COLISEO.PNG') }}"  class="d-block w-70 img-fluid" alt="Gimnasio">
+                        <img src="{{ asset('images/c1.PNG') }}"  class="d-block w-70 img-fluid" alt="Gimnasio">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/LOGO_COLISEO.PNG') }}"  class="d-block w-70 img-fluid" alt="Gimnasio">
+                        <img src="{{ asset('images/c2.PNG') }}"  class="d-block w-70 img-fluid" alt="Gimnasio">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/LOGO_COLISEO.PNG') }}"  class="d-block w-70 img-fluid" alt="Gimnasio">
+                        <img src="{{ asset('images/c3.PNG') }}"  class="d-block w-70 img-fluid" alt="Gimnasio">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -85,8 +81,7 @@
   <div class="container text-center">
       <img src="{{ asset('images/LOGO.PNG') }}" class="plate-animation" width="100" alt="Gimnasio">
   </div>
- 
-                    
+   
     <div class="container">  
         <section class="seccion-1">
             <div class="text-center container mt-5">
@@ -100,16 +95,6 @@
    
         <br>
 
-
-        
-        
-        
-        
-        
-        
-        
-        
-  
          <div class="text-center container mt-5">
             <hr>
             <h2><strong>Tienda Online de Nutrición Deportiva, Dietética Natural y Accesorios</strong></h2>
