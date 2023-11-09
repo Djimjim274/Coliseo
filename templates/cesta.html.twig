@@ -3,8 +3,7 @@
 {% block contenido %}
 <div class="container">
     <h3>{%  block title  %} CESTA: {% endblock %}</h3>
-
-
+    
     {% if total >0 %}
        
 <table class="table table-bordered" class=" " >
@@ -22,8 +21,8 @@
         {% for producto in cesta %}
         </tr>
             <td>{{ producto['producto'].getNombre() }}</td>
-            <td>{{ producto['producto'].getPrice() }}€</td>
             <td>{{ producto['unidades'] }}</td>
+            <td>{{ producto['producto'].getPrice() }}€</td>
             <td>{{ producto['producto'].getPrice() * producto.unidades }}€</td>
             <td>
                         <form id='eliminar' action='{{ path('eliminar', {'producto_id':producto['producto'].getId()}) }}' method='post'>
@@ -32,6 +31,7 @@
                             <input type='hidden' name='cod' value='{{producto['producto'].getId()}}'/>
                         </form>
                     </td>
+                   
         </tr>
         {% endfor %}
     </tbody>
@@ -54,3 +54,4 @@
             
 </div>
 {% endblock %}
+

@@ -39,7 +39,8 @@ class PedidosBaseController extends AbstractController {
         $argumentos = ['familias' => $familias];
         return $this->render('listado_familias.html.twig', $argumentos);
     }
-
+    
+ 
     /**     Lo de aqui abajo es el path que ponemos en los action y href
      * @Route("/productos/{familia}", name="productos")
      */
@@ -49,6 +50,8 @@ class PedidosBaseController extends AbstractController {
         return $this->render('listado_productos.html.twig', $argumentos);
     }
 
+ 
+    
     /**
      * @Route("/anadir/{producto_id}", name="anadir")
      */
@@ -147,7 +150,7 @@ class PedidosBaseController extends AbstractController {
 
             //Enviamos el correo
             $mensaje = (new \Swift_Message('Confirmación de pedido'))
-                    ->setFrom('djimjim274@iesmartinezm.es')
+                    ->setFrom('danieljimplaysix@gmail.com')
                     ->setTo($usuario->getEmail())
                     ->setBody($this->renderView('confirmacion_pedido.html.twig',
                             ['pedido' => $pedido, 'cesta' => $cesta->getProductos()]), 'text/html');

@@ -7,7 +7,7 @@
     </svg>
     Su pedido se ha realizado correctamente</p>
 
-<table class="table table-bordered" class=" " >
+<table class="table table-bordered" border="1" >
     <thead class="thead-dark table-primary">
         <tr>
             <th>Nº Pedido: {{ pedido.id }}</th>
@@ -21,15 +21,17 @@
         <th>Unidades</th>
         <th>Total</th>
     </tr>
-    <tbody>
+        
+    <tbody> 
         {% for producto in cesta %}
-
+        <tr>
+       
             <td>{{ producto['producto'].getNombre() }}</td>
             <td>{{ producto['producto'].getPrice() }}€</td>
             <td>{{ producto['unidades'] }}</td>
             <td>{{ producto['producto'].getPrice() * producto.unidades }}€</td>
-
-            </tr>
+       
+        </tr>
         {% endfor %}
     </tbody>
 </table>
@@ -38,6 +40,6 @@
 
 </table>
 
-<p>Muchas gracias por su compra.</p>
+<p>Muchas gracias por confiar en Coliseo.</p>
 
 

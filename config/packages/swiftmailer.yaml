@@ -3,6 +3,7 @@ swiftmailer:
     host: 'smtp.gmail.com'
     port: 587
     encryption: tls
-    username: 'alvaropastorromero@gmail.com'
-    password: 'pqoukmcxeywzrwyb'
+    username: 'danieljimplaysix@gmail.com'
+    password: 'stfycqrmuaahqcst'
+              
     spool: {type: memory}
