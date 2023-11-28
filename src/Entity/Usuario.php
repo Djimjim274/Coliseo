@@ -27,6 +27,11 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $usuario;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $direccion;
 
     /**
      * @ORM\Column(type="json")
@@ -152,6 +157,18 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+    
+      public function getDireccion(): ?string
+    {
+        return $this->direccion;
+    }
+
+    public function setDireccion(string $direccion): self
+    {
+        $this->direccion = $direccion;
 
         return $this;
     }

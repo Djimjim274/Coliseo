@@ -1,87 +1,115 @@
 {% extends 'base.html.twig' %}
 
-{% block contenido %}      
-  <div class="container text-center">  
-        <!--CAROUSEL-->
-       
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset('images/c1.PNG') }}"  class="d-block w-70 img-fluid" alt="Gimnasio">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('images/c2.PNG') }}"  class="d-block w-70 img-fluid" alt="Gimnasio">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('images/c3.PNG') }}"  class="d-block w-70 img-fluid" alt="Gimnasio">
+
+{% block contenido %} 
+    <style>
+        .img-fluid{
+            min-width: 250px;
+        }
+    </style>  
+    
+ 
+           
+ <!--CAROUSEL-->
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('images/c1.PNG') }}"class="d-block w-100 img-fluid"
+                    alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('images/c2.PNG') }}" class="d-block w-100 img-fluid" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('images/c3.PNG') }}" class="d-block w-100 img-fluid"
+                    alt="">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>    
+     <br>
+     <center><img src="{{ asset('images/black.PNG') }}" class="plate-animation" width="200" alt="black"></center>
+  </div>
+  
+<div class="container mt-5">
+     <hr>
+     <h2><strong><center>Tienda Online de Nutrición Deportiva, Dietética Natural y Accesorios<center></strong></h2>
+      <hr>
+      <br>
+    <!--TARGETAS-->
+    <div class="row">
+
+        <div class="col-12 col-md-6">
+            <div class="d-flex align-items-center">
+                <div>
+                    <img src="{{ asset('images/prot.PNG') }}" alt="proteinas" class="img-fluid">
+                </div>
+                <div class="ml-3">
+                     <spam class="text-primary" id="diseño"><h2>Whey Protein</h2> </spam>    
+                    <h5>La proteína está destinada a cualquier deportista, pasando desde culturistas y entrenadores de fuerza, atletas, corredores, nadadores, deportes de equipo, etc.</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="d-flex align-items-center">
+                <div class="mr-3">
+                      <spam class="text-primary" id="diseño"><h2>Creatinas</h2> </spam>    
+                    <h5>La creatina proporciona energía a los tejidos musculares, además de aumentar la fuerza y la resistencia. Mejora el rendimiento físico</h5>
+                </div>
+                <div>
+                    <img src="{{ asset('images/creat.PNG') }}" alt="creatina" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mt-5">
+            <div class="row">
+
+                <div class="col-12 col-md-6">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <img src="{{ asset('images/pre-entrenos.PNG') }}" alt="pre-entrenos" class="img-fluid">
+                        </div>
+                        <div class="ml-3">
+                              <spam class="text-primary" id="diseño"><h2>Pre-entrenos</h2> </spam>    
+                            <h5>Un producto pre-entrenamiento es un suplemento deportivo recomendado para aquellos momentos previos a tu entrenamiento en el gimnasio o algún partido de fútbol</h5>
+                        </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                        
+            <div class="col-12 col-md-6">
+                       <div class="d-flex align-items-center">
+                           <div class="mr-3">
+                              <spam class="text-primary" id="diseño"><h2>Glutamina</h2> </spam>    
+                            <h5>La glutamina es uno de los 20 aminoácidos que intervienen en la composición de las proteínas y que tienen codones referentes en el código genético</h5>
+                        </div>
+                           <div>
+                              <img src="{{ asset('images/glut.PNG') }}" alt="glutamina" class="img-fluid">
+                           </div>
+                       </div>
+                   </div>
             </div>
-      
-         <br> 
-         <br> 
-                    
-     
-  
-      <img src="{{ asset('images/LOGO.PNG') }}" class="plate-animation" width="100" alt="Gimnasio">
-  </div>
-   
-  
-    <div class="container">  
-        <section class="seccion-1">
-            <div class="text-center container mt-5">
-                <hr>
-                <h1><strong>CLUB DE FUERZA COLISEO</strong></h1>
-                <div class="container mt-5">
-                    <h2 class="mt-5 animated-text" >PRODUCTOS RECOMENDADOS</h2>
-                </div>  
-            </div>
-        </section>
-   
-        <br>
-
-         <div class="text-center container mt-5">
-            <hr>
-            <h2><strong>Tienda Online de Nutrición Deportiva, Dietética Natural y Accesorios</strong></h2>
+        </div>
+    </div>
             <h4 class="mt-5">
                 ¿Eres deportista y sabes que la mejor versión de ti mismo está aún por llegar? ¿Llevas o quieres seguir un estilo de vida saludable? Prepárate porque vas a ser uno de los miles de clientes COLISEO. Comprobarás cómo la distancia que te separa de tus objetivos se acorta. 
             </h4>
             <h4 class="mt-5">
             Somos la tienda online de Nutrición Deportiva y Dietética Natural líder. Para nosotros tú eres el centro de todo. En COLISEO vas a encontrar un equipo con el que vas a identificarte, pues nuestro esfuerzo por cruzar la delgada línea entre lo notable y lo sobresaliente no entiende de límites.
              </h4>
-         </div>
-
-
-        <!--Footer-->
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="container">
-                <footer class="py-1 my-3">
-
-                    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Términos y Condiciones</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contacto</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Política de Privacidad</a></li>
-                    </ul>
-                    <p class="text-center text-muted">© 2023 Coliseo, Inc</p>
-                </footer>
-            </div>
-        </footer>          
-
-      </div>
-                        
-  
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+             <hr>         
+</div>
+                    
 
 {% endblock %}
 

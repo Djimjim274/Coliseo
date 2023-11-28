@@ -1,37 +1,49 @@
 {% extends 'base.html.twig' %}
 
 {% block contenido %}
-  
-        
-    <div class="container ">    
-        <h3>{%  block title  %}Productos {% endblock %}</h3>
+ 
+    <style>
+        .producto-card {
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
 
-        <div class="container mt-4 ">
+.producto-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+    </style>    
 
-            <div class="row ">
-                <!-- Tarjeta de Producto 1 -->
+ <div class="container mt-4">
+        <h3>{% block title %}Productos{% endblock %}</h3>
+
+        <div class="container mt-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for producto in productos %}
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card ">
-                          
-                              
-                           <img src="{{ asset('images/LOGO.png') }}" class="card-img-top mx-auto d-block" alt="{{producto.getNombre()}}">
+                    <div class="col mb-4">
+                        <div class="card producto-card h-100">
+                      {#      {% set nombreImagen = producto.id ~ '.png' %}
+                         <img src="{{ asset('images/' ~ nombreImagen) }}" class="card-img-top mx-auto d-block" alt="{{ producto.getNombre() }}"> #}
+                            <img src="{{ asset('images/creat.png') }}" class="card-img-top mx-auto d-block" alt="{{ producto.getNombre() }}">
                             <div class="card-body">
-                            <h5 class="card-title">{{producto.getNombre()}}</h5>
-                            <br>
-                            <p class="card-text">{{producto.getDescripcion() }}</p>
-                            <p class="card-cover">{{producto.getPrice() }}€</p>
+                                <h5 class="card-title">{{ producto.getNombre() }}</h5>
+                                <p class="card-text">{{ producto.getDescripcion() }}</p>
+                                <p class="card-cover">{{ producto.getPrice() }}€</p>
 
-                            <form id='anadir' action='{{ path('anadir', {'producto_id':producto.getId() }) }}' method='post'>
-                                <input class="minimalist-small-button" type="number" name='unidades' value='1' class="cantidad" >
-                                <input class="btn btn-primary btn-block" type='submit' name='anadir' value='Añadir'>
-                                <input type='hidden' name='id' value='{{producto.getId()}}'/>
-                            </form>
+                                <form id='anadir' action='{{ path('anadir', {'producto_id': producto.getId() }) }}' method='post'>
+                                    <input class="minimalist-small-button" type="number" name='unidades' value='1' class="cantidad">
+                                    <input class="btn btn-primary btn-block" type='submit' name='anadir' value='Añadir'>
+                                    <input type='hidden' name='id' value='{{ producto.getId() }}'/>
+                                </form>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                 {% endfor %}
             </div>
-        </div>  
+        </div>
+    </div>
 {% endblock %}
+
+
 

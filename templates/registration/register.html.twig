@@ -179,6 +179,10 @@ a{color:inherit;text-decoration:none}
                                     {{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'label'}}) }}
                                     {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
 				</div>
+                                <div class="group">    
+                                    {{ form_label(registrationForm.direccion, 'Direccion  (c/ nº , pueblo(ciudad))', {'label_attr': {'class': 'label'}}) }}
+                                    {{ form_widget(registrationForm.direccion, {'attr': {'class': 'form-control'}}) }}
+				</div>
                                 <div class="group">
                                     {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
                                     {{ form_label(registrationForm.agreeTerms, 'Acepto los términos y condiciones', {'label_attr': {'class': 'label'}}) }}

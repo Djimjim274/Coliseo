@@ -31,6 +31,7 @@ class PedidosBaseController extends AbstractController {
         $this->mailer = $mailer;
     }
 
+    //suplementación
     /**
      * @Route("/familia", name="familia")
      */
@@ -39,6 +40,8 @@ class PedidosBaseController extends AbstractController {
         $argumentos = ['familias' => $familias];
         return $this->render('listado_familias.html.twig', $argumentos);
     }
+    
+  
     
  
     /**     Lo de aqui abajo es el path que ponemos en los action y href
@@ -51,6 +54,27 @@ class PedidosBaseController extends AbstractController {
     }
 
  
+ /**
+     * @Route("/mostrar-imagen-producto/{id}", name="mostrar_imagen_producto")
+     */
+    public function mostrarImagenProducto($id)
+    {
+        $producto = $this->getDoctrine()->getRepository(Producto::class)->find($id);
+
+        if (!$producto) {
+            throw $this->createNotFoundException('El producto no fue encontrado');
+        }
+
+        $imagenData = $producto->getImg();
+
+        // Devuelve una respuesta de tipo imagen
+        return new Response($imagenData, 200, [
+            'Content-Type' => 'image/jpeg', // Ajusta según el tipo de imagen que estés utilizando
+            'Content-Disposition' => 'inline; filename="imagen.jpg"',
+        ]);
+    }
+    
+    
     
     /**
      * @Route("/anadir/{producto_id}", name="anadir")
